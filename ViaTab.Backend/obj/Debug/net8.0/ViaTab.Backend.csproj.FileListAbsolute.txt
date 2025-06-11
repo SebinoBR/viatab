@@ -133,3 +133,4 @@ C:\Users\sbrba\Desktop\Sem4 Exams\DOC1Y\Assignment\viatab\ViaTab.Backend\obj\Deb
 C:\Users\sbrba\Desktop\Sem4 Exams\DOC1Y\Assignment\viatab\ViaTab.Backend\obj\Debug\net8.0\ViaTab.Backend.pdb
 C:\Users\sbrba\Desktop\Sem4 Exams\DOC1Y\Assignment\viatab\ViaTab.Backend\obj\Debug\net8.0\ViaTab.Backend.genruntimeconfig.cache
 C:\Users\sbrba\Desktop\Sem4 Exams\DOC1Y\Assignment\viatab\ViaTab.Backend\obj\Debug\net8.0\ref\ViaTab.Backend.dll
+C:\Users\sbrba\Desktop\Sem4 Exams\DOC1Y\Assignment\viatab\ViaTab.Backend\obj\Debug\net8.0\ViaTab.Backend.sourcelink.json
