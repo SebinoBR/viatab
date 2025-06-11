@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "A1LQEqqYar9tfhL8aS1NKIVR33wE2r1tqcykwwsSI+U=",
+  "Source": "ViaTab.Backend",
+  "BasePath": "_content/ViaTab.Backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

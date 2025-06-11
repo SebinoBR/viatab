@@ -1,0 +1,53 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Restore dependencies
+      run: dotnet restore
+      
+    - name: Build
+      run: dotnet build --no-restore
+      
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+      
+    - name: Build Docker Image
+      run: docker build -t viatab-backend:${{ github.sha }} ./ViaTab.Backend
+      
+  deploy:
+    needs: test-and-build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Start minikube
+      uses: medyagh/setup-minikube@master
+      
+    - name: Build Docker Image for K8s
+      run: |
+        eval $(minikube docker-env)
+        docker build -t viatab-backend:latest ./ViaTab.Backend
+        
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f k8s/postgres-deployment.yaml
+        kubectl apply -f k8s/backend-deployment.yaml
+        kubectl rollout status deployment/backend-deployment
